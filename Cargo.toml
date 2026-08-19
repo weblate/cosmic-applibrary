@@ -7,7 +7,7 @@ rust-version = "1.93"
 
 [workspace]
 members = []
-exclude = ["scripts/generate"]
+exclude = ["scripts/xdgen"]
 
 [features]
 default = ["wgpu"]
@@ -52,7 +52,7 @@ cosmic-app-list-config = { git = "https://github.com/pop-os/cosmic-applets" }
 # cosmic-app-list-config = { path = "../cosmic-applets/cosmic-app-list/cosmic-app-list-config/" }
 
 [profile.release]
-# lto = "thin"
+lto = "thin"
 
 # [patch."https://github.com/pop-os/libcosmic/"]
 # libcosmic = { git = "https://github.com/pop-os/libcosmic//", branch = "theme-v2" }

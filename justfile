@@ -1,6 +1,8 @@
 name := 'cosmic-app-library'
 appid := 'com.system76.CosmicAppLibrary'
 
+export APPID := 'com.system76.CosmicAppLibrary'
+
 rootdir := ''
 prefix := '/usr'
 
@@ -8,9 +10,6 @@ base-dir := absolute_path(clean(rootdir / prefix))
 cargo-target-dir := env('CARGO_TARGET_DIR', 'target')
 
 mod cargo 'cargo.just'
-
-export APPID := 'com.system76.CosmicAppLibrary'
-export INSTALL_DIR := base-dir / 'share'
 
 bin-src := cargo-target-dir / 'release' / name
 bin-dst := base-dir / 'bin' / name
@@ -70,4 +69,4 @@ vendor-extract: cargo::vendor-extract
 
 # Generate desktop entries and appstream metadata with translations
 xdgen:
-    cargo run --manifest-path scripts/generate/Cargo.toml -- {{name}}
+    env APP_ID={{appid}} APP_NAME={{name}} cargo run --manifest-path scripts/xdgen/Cargo.toml

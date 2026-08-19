@@ -1,6 +1,8 @@
+xdg-title = { app-name }
+xdg-comment = An application launcher for the COSMIC desktop that lists all installed applications in a grid
+xdg-keywords = App;Application;Library;Launcher
+
 app-name = Applications
-app-comment = An application launcher for the COSMIC desktop that lists all installed applications in a grid
-app-keywords = App;Application;Library;Launcher
 cosmic-library-home = Library Home
 cosmic-office = Office
 cosmic-system = System

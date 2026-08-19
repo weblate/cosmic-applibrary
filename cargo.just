@@ -37,7 +37,7 @@ clean-dist: clean
 # Run the application for testing purposes
 [no-cd]
 run *args:
-    env RUST_LOG=debug RUST_BACKTRACE=full cargo run {{args}}
+    cargo run {{args}}
 
 # Run `cargo test`
 [no-cd]
