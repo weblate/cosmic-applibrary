@@ -5,6 +5,10 @@ authors = ["Ashley Wulber <ashley@system76.com>"]
 edition = "2024"
 rust-version = "1.93"
 
+[workspace]
+members = []
+exclude = ["hooks/generate"]
+
 [features]
 default = ["wgpu"]
 wgpu = ["libcosmic/wgpu"]
@@ -48,7 +52,7 @@ cosmic-app-list-config = { git = "https://github.com/pop-os/cosmic-applets" }
 # cosmic-app-list-config = { path = "../cosmic-applets/cosmic-app-list/cosmic-app-list-config/" }
 
 [profile.release]
-lto = "thin"
+# lto = "thin"
 
 # [patch."https://github.com/pop-os/libcosmic/"]
 # libcosmic = { git = "https://github.com/pop-os/libcosmic//", branch = "theme-v2" }

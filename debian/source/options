@@ -1,0 +1,8 @@
+tar-ignore=.github
+tar-ignore=.zed
+tar-ignore=hooks/generate/target
+tar-ignore=target/.rustc_info.json
+tar-ignore=target/CACHEDIR.TAG
+tar-ignore=target/debug
+tar-ignore=target/release
+tar-ignore=vendor
