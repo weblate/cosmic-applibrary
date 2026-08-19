@@ -7,6 +7,8 @@ prefix := '/usr'
 base-dir := absolute_path(clean(rootdir / prefix))
 cargo-target-dir := env('CARGO_TARGET_DIR', 'target')
 
+mod cargo 'cargo.just'
+
 export APPID := 'com.system76.CosmicAppLibrary'
 export INSTALL_DIR := base-dir / 'share'
 
@@ -26,30 +28,25 @@ icon-dst := base-dir / 'share' / 'icons' / 'hicolor' / 'scalable' / 'apps' / ico
 default: xdgen build-release
 
 # Runs `cargo clean`
-clean:
-    cargo clean
+clean: cargo::clean
 
 # `cargo clean` and removes vendored dependencies
-clean-dist: clean
-    rm -rf .cargo vendor vendor.tar
+clean-dist: cargo::clean-dist
 
 # Compiles with debug profile
-build-debug *args:
-    cargo build {{args}}
+build-debug *args: (cargo::build-debug args)
 
 # Compiles with release profile
-build-release *args: (build-debug '--release' args)
+build-release *args: (cargo::build-release args)
 
 # Compiles release profile with vendored dependencies
-build-vendored *args: vendor-extract (build-release '--frozen --offline' args)
+build-vendored *args: (cargo::build-vendored args)
 
 # Compiles and runs a standalone instance
-run *args: build-release
-    {{bin-src}} run {{args}}
+run *args: (cargo::run args)
 
 # Runs a clippy check
-check *args:
-    cargo clippy --all-features {{args}} -- -W clippy::pedantic
+check *args: (cargo::check args)
 
 # Runs a clippy check with JSON message format
 check-json: (check '--message-format=json')
@@ -66,19 +63,11 @@ uninstall:
     rm {{bin-dst}} {{desktop-dst}} {{appdata-dst}} {{icon-dst}}
 
 # Vendor dependencies locally
-vendor: xdgen
-    mkdir -p .cargo
-    cargo vendor --locked  | head -n -1 > .cargo/config.toml
-    echo 'directory = "vendor"' >> .cargo/config.toml
-    tar pcf vendor.tar vendor
-    rm -rf vendor
+vendor: xdgen cargo::vendor
 
 # Extracts vendored dependencies
-vendor-extract:
-    #!/usr/bin/env sh
-    rm -rf vendor
-    tar pxf vendor.tar
+vendor-extract: cargo::vendor-extract
 
 # Generate desktop entries and appstream metadata with translations
 xdgen:
-    cargo run --manifest-path hooks/generate/Cargo.toml -- {{name}}
+    cargo run --manifest-path scripts/generate/Cargo.toml -- {{name}}

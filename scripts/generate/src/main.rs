@@ -3,7 +3,7 @@ use std::{env, fs};
 use xdgen::{App, Context, FluentString};
 
 fn main() {
-    let ctx = Context::new("i18n", dbg!(env::args().nth(1)).unwrap()).unwrap();
+    let ctx = Context::new("i18n", env::args().nth(1).unwrap()).unwrap();
     let app = App::new(FluentString("cosmic-app-library"))
         .comment(FluentString("app-comment"))
         .keywords(FluentString("app-keywords"));
