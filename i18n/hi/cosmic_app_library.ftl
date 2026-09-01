@@ -1,4 +1,3 @@
-cosmic-app-library = कास्मिक ऐप लाइब्रेरी
 cosmic-library-home = लाइब्रेरी होम
 cosmic-office = ऑफिस
 cosmic-system = सिस्टम

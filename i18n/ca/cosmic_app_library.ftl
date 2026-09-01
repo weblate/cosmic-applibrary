@@ -2,7 +2,6 @@ cancel = Cancel·lar
 run = Executa
 run-on = Executa a { $gpu }
 run-on-default = (Per defecte)
-cosmic-app-library = Biblioteca d'aplicacions del COSMIC
 cosmic-library-home = Inici
 cosmic-office = Oficina
 cosmic-system = Sistema

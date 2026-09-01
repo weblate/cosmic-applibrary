@@ -1,4 +1,3 @@
-cosmic-app-library = COSMICin sovelluskirjasto
 cancel = Peru
 cosmic-office = Toimisto
 cosmic-system = Järjestelmä

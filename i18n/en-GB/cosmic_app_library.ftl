@@ -1,4 +1,3 @@
-cosmic-app-library = COSMIC App Library
 cosmic-library-home = Library Home
 cosmic-office = Office
 cosmic-system = System

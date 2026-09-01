@@ -1,4 +1,3 @@
-cosmic-app-library = Pustaka Aplikasi COSMIC
 cosmic-library-home = Beranda Pustaka
 cancel = Batalkan
 cosmic-office = Kantor
@@ -26,3 +25,7 @@ delete-folder = Hapus map?
 system = Sistem
 local = Lokal
 nix = Nix
+xdg-title = { app-name }
+xdg-comment = Peluncur aplikasi untuk desktop COSMIC yang mencantumkan semua aplikasi yang dipasang dalam kisi
+xdg-keywords = Apl;Aplikasi;Pustaka;Peluncur
+app-name = Aplikasi
