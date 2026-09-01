@@ -15,8 +15,8 @@ use cosmic::iced::runtime::{Action, platform_specific, task};
 use cosmic::iced::window;
 use cosmic::surface::action::{LiveSettings, app_layer_shell, simple_layer_shell, simple_popup};
 use cosmic::widget::menu::menu_column::MenuColumn;
+use cosmic::widget::reorderable_flex_row;
 use cosmic::widget::space::horizontal;
-use cosmic::widget::{ListColumn, reorderable_flex_row};
 use cosmic::{
     Element,
     app::{Core, CosmicFlags, Settings, Task},
@@ -77,7 +77,7 @@ use cosmic::{
     keyboard_nav,
     theme::{self, Button, TextInput},
     widget::{
-        self, Column,
+        self,
         autosize::autosize,
         button::{self, Catalog as ButtonStyleSheet},
         divider,
@@ -833,19 +833,17 @@ impl cosmic::Application for CosmicAppLibrary {
             }
             Message::Layer(e, id) => {
                 match e {
-                    LayerEvent::Focused => {
-                        if self.menu.is_none() {
-                            if id == SurfaceId::RESERVED {
-                                return text_input::focus(SEARCH_ID.clone()).chain(
-                                    iced_runtime::task::widget(find_focused()).map(|id| {
-                                        cosmic::Action::App(Message::UpdateFocused(Some(id)))
-                                    }),
-                                );
-                            } else if id == *DELETE_GROUP_WINDOW_ID {
-                                return button::focus(SUBMIT_DELETE_ID.clone());
-                            } else if id == *NEW_GROUP_WINDOW_ID {
-                                return text_input::focus(NEW_GROUP_ID.clone());
-                            }
+                    LayerEvent::Focused if self.menu.is_none() => {
+                        if id == SurfaceId::RESERVED {
+                            return text_input::focus(SEARCH_ID.clone()).chain(
+                                iced_runtime::task::widget(find_focused()).map(|id| {
+                                    cosmic::Action::App(Message::UpdateFocused(Some(id)))
+                                }),
+                            );
+                        } else if id == *DELETE_GROUP_WINDOW_ID {
+                            return button::focus(SUBMIT_DELETE_ID.clone());
+                        } else if id == *NEW_GROUP_WINDOW_ID {
+                            return text_input::focus(NEW_GROUP_ID.clone());
                         }
                     }
                     LayerEvent::Unfocused => {
@@ -1044,7 +1042,7 @@ impl cosmic::Application for CosmicAppLibrary {
                     self.menu = Some(i);
                     let offset = self.scroll_offset as i32;
                     return cosmic::surface::surface_task(simple_popup(
-                        || LiveSettings::default(),
+                        LiveSettings::default,
                         move || {
                             SctkPopupSettings {
                         parent: SurfaceId::RESERVED,
