@@ -1,8 +1,10 @@
-use std::{env, fs, path::PathBuf};
+use std::path::PathBuf;
+use std::{env, fs};
 use xdgen::{App, Context, FluentString};
 
 fn main() {
-    let id = env::var("APP_ID").unwrap();
+    println!("cargo:rerun-if-env-changed=APP_ID");
+    let id = env::var("APP_ID").unwrap_or_else(|_| String::from("com.system76.CosmicAppLibrary"));
     let ctx = Context::new("i18n", env::var("CARGO_PKG_NAME").unwrap()).unwrap();
     let app = App::new(FluentString("xdg-title"))
         .comment(FluentString("xdg-comment"))

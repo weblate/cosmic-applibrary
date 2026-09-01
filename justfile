@@ -2,7 +2,6 @@ name := 'cosmic-app-library'
 appid := 'com.system76.CosmicAppLibrary'
 
 export APP_ID := 'com.system76.CosmicAppLibrary'
-export LOCKSTEP_XML_PATH := absolute_path('vendor/atspi-common/xml')
 
 rootdir := ''
 prefix := '/usr'
