@@ -1,4 +1,3 @@
-cosmic-app-library = COSMIC 應用程式庫
 cosmic-library-home = 應用程式庫首頁
 cosmic-office = 辦公
 cosmic-system = 系統
@@ -26,3 +25,7 @@ snap = Snap
 system = 系統
 local = 本機
 nix = Nix
+xdg-title = { app-name }
+xdg-comment = COSMIC 桌面的應用程式啟動器，以網格形式列出所有已安裝的應用程式
+app-name = 應用程式
+xdg-keywords = App;應用;應用程式;庫;啟動器

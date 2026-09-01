@@ -1,4 +1,3 @@
-cosmic-app-library = COSMIC App Bibliotek
 cosmic-system = System
 new-group = Opret Mappe
 name = Navn

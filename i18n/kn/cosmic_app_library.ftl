@@ -1,4 +1,3 @@
-cosmic-app-library = ಕಾಸ್ಮಿಕ್ ಅಪ್ಲಿಕೇಶನ್ ಗ್ರಂಥಾಲಯ
 cosmic-library-home = ಗ್ರಂಥಾಲಯದ ಮನೆ
 cosmic-office = ಆಫೀಸ್
 cosmic-system = ಸಿಸ್ಟಮ್

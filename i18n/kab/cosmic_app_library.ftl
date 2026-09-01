@@ -1,4 +1,3 @@
-cosmic-app-library = Tamkarḍit n isnasen COSMIC
 cosmic-library-home = Tamkarḍit tagejdant
 cosmic-system = Anagraw
 cosmic-utilities = Ifecka

@@ -1,4 +1,3 @@
-cosmic-app-library = Knihovna aplikací COSMIC
 cosmic-library-home = Domov
 cosmic-office = Kancelář
 cosmic-system = Systém
@@ -26,3 +25,7 @@ snap = Snap
 system = Systém
 local = Lokální
 nix = Nix
+app-name = Aplikace
+xdg-keywords = Aplikace;Programy;Knihovna;Spouštěč;
+xdg-comment = Spouštěč aplikací pro prostředí COSMIC, který zobrazuje všechny nainstalované aplikace v mřížce
+xdg-title = { app-name }
